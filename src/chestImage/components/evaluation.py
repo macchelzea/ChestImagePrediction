@@ -7,7 +7,11 @@ import mlflow.keras
 from urllib.parse import urlparse
 
 import dagshub
-dagshub.init(repo_owner='sap23v5', repo_name='ChestImageClassification', mlflow=True)
+# dagshub.init(repo_owner='sap23v5', repo_name='ChestImageClassification', mlflow=True)
+
+dagshub.init(repo_owner='macchelzea', repo_name='ChestImagePrediction', mlflow=True)
+
+
 
 
 
