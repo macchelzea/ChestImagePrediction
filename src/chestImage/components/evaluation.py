@@ -7,7 +7,6 @@ import mlflow.keras
 from urllib.parse import urlparse
 
 import dagshub
-# dagshub.init(repo_owner='sap23v5', repo_name='ChestImageClassification', mlflow=True)
 
 dagshub.init(repo_owner='macchelzea', repo_name='ChestImagePrediction', mlflow=True)
 
@@ -63,9 +62,12 @@ class Evaluation:
     
 
     def log_into_mlflow(self):
-        mlflow.set_registry_uri(self.config.mlflow_uri)
+        # mlflow.set_registry_uri(self.config.mlflow_uri)
+        mlflow.set_tracking_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         
+        print("&&&&& MLflow tracking URI:", mlflow.get_tracking_uri(), "&&&&&")
+
         with mlflow.start_run():
             mlflow.log_params(self.config.all_params)
             mlflow.log_metrics(
